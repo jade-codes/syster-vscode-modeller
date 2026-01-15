@@ -145,9 +145,9 @@ export class ModellerPanel {
             const client = await this.getLspClient();
 
             // Send custom request to LSP
-            const result = await client.sendRequest<DiagramData>('syster/getDiagram', {
+            const result = await client.sendRequest('syster/getDiagram', {
                 uri: uri?.toString()
-            });
+            }) as DiagramData;
 
             // Forward to webview
             this.panel.webview.postMessage({
